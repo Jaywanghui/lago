@@ -1,0 +1,55 @@
+<!-- User Account Menu -->
+    <!-- Menu Toggle Button -->
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <!-- The user image in the navbar-->
+        {{if isSignin}}
+        <img src="/static/images/user2-160x160.jpg" class="user-image" alt="User Image">
+        <!-- hidden-xs hides the username on small devices so only the image appears. -->
+        <span class="hidden-xs">{{greeting}}</span>
+        {{else}}
+        <div id="click-btn">
+            <span id="btn-signin">登录</span>
+            <span id="btn-signup">注册</span>
+        </div>
+        {{/if}}
+    </a>
+    <ul class="dropdown-menu">
+        <!-- The user image in the menu -->
+        {{if !isSignin}}
+        <li class="user-header" id="user-header">
+            <form role="form">
+                <div class="box-body">
+                    <div class="form-group user">
+                        <label for="exampleInputEmail1">用户名：</label>
+                        <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码：</label>
+                        <input type="password" class="form-control" id="password" placeholder="请输入密码">
+                    </div>
+                </div>
+            </form>
+        </li>
+        {{else}}
+
+        <li class="user-header">
+            <img src="/static/images/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </li>
+        {{/if}}
+
+        <!-- Menu Footer-->
+        <li class="user-footer">
+            <div class="pull-left">
+                <a href="javascript:void(0)" class="btn btn-default btn-flat">关闭</a>
+            </div>
+            {{if !isSignin}}
+            <div class="pull-right">
+                <a href="javascript:void(0)" id="user-submit" class="btn btn-default btn-flat">提交</a>
+            </div>
+            {{else}}
+            <div class="pull-right">
+                <a href="javascript:void(0)" id="user-signout" class="btn btn-default btn-flat">退出</a>
+            </div>
+            {{/if}}
+        </li>
+    </ul>
